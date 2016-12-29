@@ -19,9 +19,8 @@ class ItemsController extends AppController
     public function index()
     {
         $items = $this->paginate($this->Items);
-
-        $this->set(compact('items'));
-        $this->set('_serialize', ['items']);
+        foreach($items as $i) $result[] = $i;
+        $this->set($result);
     }
 
     /**
